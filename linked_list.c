@@ -40,7 +40,7 @@ struct node *create_list(int num)
 		head = calloc(1, NODE_SIZE);
 		head->value = 0;
 		curr = head;
-		for(i = 1; i < num; i++) {
+		for(i = 0; i < num; i++) {
 			next = calloc(1, NODE_SIZE);
 			next->value = i;
 			curr->next = next;
