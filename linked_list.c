@@ -8,7 +8,7 @@ struct node {
 
 #define NODE_SIZE sizeof(struct node)
 
-void apply(void (*fn)(struct node *), struct node *head);
+void apply(struct node *head, void (*fn)(struct node *));
 struct node *create_list(int num);
 void print(struct node *item);
 void free_list(struct node *item);
@@ -17,13 +17,13 @@ int main()
 {
 	struct node *list = create_list(1024);
 
-	apply(&print, list);
+	apply(list, &print);
 
 	free_list(list);
 	return 0;
 }
 
-void apply(void (*fn)(struct node *), struct node *head)
+void apply(struct node *head, void (*fn)(struct node *))
 {
 	struct node *item = head;
 	while(item) {
